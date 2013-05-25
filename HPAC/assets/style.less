@@ -1,0 +1,373 @@
+@crimson: #BA0600;
+@gray: #999;
+@light_gray: #CCC;
+@dark_gray: #666;
+
+.transitions (@time: 0.3s) {
+    transition: @time all;
+    -moz-transition: @time all;
+    -webkit-transition: @time all;
+}
+
+.rounded_corners (@radius: 4px) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+.clearfix {
+    clear: both;
+}
+
+/* USE THESE CLASSES ON DIVS THAT MAYA WANTS BORDERS BETWEEN */
+
+.border_left {
+    border-left: 1px solid @light_gray;
+}
+
+.border_right {
+    border-right: 1px solid @light_gray;
+}
+
+/* SETUP */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Vollkorn";   
+}
+
+div {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
+}
+
+a {
+    color: @crimson;
+    .transitions;
+    &:hover {
+        color: darken(@crimson, 10%);
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* HEADER */
+
+#navigation {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 12px 12px 6px;    
+    background-image: url("images/nav_bg.jpg");
+    width: 100%;
+    box-shadow: 0px 2px 4px #333;
+}
+
+#navigation img {
+    height: 16px;
+    padding-right: 12px;
+    margin-right: 12px;
+    border-right: 1px solid #FFF;
+    float: left;
+}
+
+#navigation h2 {
+    display: inline-block;
+    color: #FFF;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: normal;
+    margin: 0;
+    float: left;
+}
+
+#navigation ul {
+    margin: 0 20px;
+    padding: 0;
+    position: relative;
+    top: -2px;
+    float: right;
+}
+
+#navigation ul li {
+    display: inline-block;
+    margin: 0 8px;    
+    a {
+        font-family: "Open Sans";
+        color: #FFF;
+        font-size: 12px;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-shadow: 1px 1px 2px #333;
+        padding: 4px 8px;
+        .rounded_corners(10px);
+        .transitions;
+        &:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+/* CONTENT LAYOUT */
+
+#wrapper {
+    max-width: 960px;
+    margin: 72px auto 0;
+    overflow: hidden;
+}
+
+#wrapper_inner {
+    overflow: hidden;
+    margin: 0 auto 40px;
+}
+
+#sidebar {
+    float: left;
+    max-width: 300px;
+}
+
+#main {
+    float: left;
+    max-width: 640px;
+    padding-left: 20px;
+    border-left: 1px solid @light_gray;    
+    &::after {
+        content: " ";
+        clear: both;
+    }
+}
+
+/* SUP GUYS HERE'S MY JANKY GRID, GIVE THINGS A WIDTH AND POSITION (LEFT/RIGHT) */
+
+.main_left {
+    float: left;
+    padding-right: 20px;
+}
+
+.main_right {
+    float: right;
+    padding-left: 20px;
+}
+
+.main_third {
+    max-width: 200px;
+}
+
+.main_twothirds {
+    max-width: 400px;
+}
+
+.main_half {
+    max-width: 300px;
+}
+
+/* SIDEBAR */
+
+.featured_item {
+    margin: 20px 0;
+    h3 {
+        margin: 0;
+        a {
+            text-decoration: none;
+        }
+    }
+    h4 {
+        margin: 0 0 12px;
+        font-size: 14px;
+    }
+    p {
+        margin: 0;
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+.featured_item:not(:last-child) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid @light_gray;
+}
+
+/* MAIN */
+
+#header {
+    overflow: auto;
+    margin: 40px 0 0;    
+}
+
+#title {
+    float: left;
+}
+
+#nav_grid {
+    float: right;
+    a {
+        position: relative;
+        &:not(:last-child) {
+            margin-right: 10px;
+        }        
+        font-size: 14px;
+    }    
+    a img {
+        .rounded_corners(10px);
+        opacity: 0.7;
+        .transitions;
+        position: relative;
+        top: 10px;
+        &:hover {
+            opacity: 1;
+            position: relative;
+            top: 0px;
+        }
+    }
+    a span {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        display: block;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #FFF;
+        width: 80px;
+    }    
+}
+
+#title h1 {
+    color: @crimson;
+    font-size: 48px;
+    line-height: 48px;
+    margin: 0;
+}
+
+#title h3 {
+    margin-top: 0;
+}
+
+#title h4 {
+    font-family: "Open Sans";
+    color: @gray;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    font-size: 12px;
+}
+
+#wrapper_inner h2 {
+    color: @crimson;
+    margin-top: 0;
+}
+
+#wrapper_inner h3 {
+}
+
+hr {
+    border-top: 1px solid @light_gray;
+    border-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.pullquote {
+    background: #FAF0F0;
+    padding: 20px;    
+    margin-bottom: 30px;
+    .quote {
+        font-size: 24px;
+        font-weight: 100;
+        color: @dark_gray;
+        &::before, &::after {
+            font-size: 24px;
+            color: @crimson;
+        }
+        &::before {
+            content: "\201C";
+        }
+        &::after {
+            content: "\201D";
+        }
+    }   
+    .source {
+        text-align: right;
+    }
+}
+
+/* ADVERTISMENETS */
+
+.advert {
+    clear: both;
+    border: 1px solid @light_gray;
+    padding: 4px 12px;
+    background: #FAFAFA;
+}
+
+.advert h4 {
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.advert_wide {
+    .advert_inner {
+        width: 728px;
+        margin: 0 auto;
+    }
+}
+
+.advert_side {
+    margin-top: 80px;
+    .advert_inner {
+        width: 300px;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+    img {
+        width: 276px;
+    }
+}
+
+/* FOOTER */
+
+#footer {
+    clear: both;
+    margin: 20px auto;
+    max-width: 960px;
+    padding-top: 20px;
+    border-top: 4px solid @crimson;
+    background: #FFF url("images/footer_bg.jpg") repeat-x bottom;
+    overflow: auto;
+    img {
+        padding: 8px;
+        float: left;
+    }
+    ul {
+        margin: 20px 0 0;
+        padding: 0;
+        float: right;
+        list-style-type: none;
+        display: inline-block;
+        max-width: 600px;
+        text-align: right;
+        li {
+            display: inline-block;
+            margin: 0px 6px;
+            a {
+                color: @crimson;
+                font-family: "Open Sans";
+                text-decoration: none;
+                font-size: 12px;
+                .transitions;
+                &:hover {
+                    color: darken(@crimson, 10%);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
