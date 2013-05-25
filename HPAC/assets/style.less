@@ -116,6 +116,35 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+#overlay {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.7;
+    filter:alpha(opacity=70);
+}
+
+#modal {
+    position:absolute;
+    background:#000;
+    border-radius:10px;
+    padding:8px;
+}
+
+#close {
+    position:absolute;
+    background:url(close.png);
+    width:24px;
+    height:27px;
+    display:block;
+    text-indent:-9999px;
+    top:-7px;
+    right:-7px;
+}
+
 /* CONTENT LAYOUT */
 
 #wrapper {
@@ -136,16 +165,17 @@ h1, h2, h3, h4, h5, h6 {
 
 #main {
     float: left;
-    max-width: 640px;
-    padding-left: 20px;
-    border-left: 1px solid @light_gray;    
+    max-width: 960px;
+    padding: 20px;
+    border-left: 1px solid @light_gray;
+    border-right: 1px solid @light_gray;
+        
     &::after {
         content: " ";
         clear: both;
     }
 }
 
-/* SUP GUYS HERE'S MY JANKY GRID, GIVE THINGS A WIDTH AND POSITION (LEFT/RIGHT) */
 
 .main_left {
     float: left;
@@ -158,42 +188,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main_third {
-    max-width: 200px;
+    max-width: 320;
 }
 
 .main_twothirds {
-    max-width: 400px;
+    max-width: 640px;
 }
 
 .main_half {
-    max-width: 300px;
-}
-
-/* SIDEBAR */
-
-.featured_item {
-    margin: 20px 0;
-    h3 {
-        margin: 0;
-        a {
-            text-decoration: none;
-        }
-    }
-    h4 {
-        margin: 0 0 12px;
-        font-size: 14px;
-    }
-    p {
-        margin: 0;
-        &:not(:last-child) {
-            margin-bottom: 12px;
-        }
-    }
-}
-
-.featured_item:not(:last-child) {
-    padding-bottom: 20px;
-    border-bottom: 1px solid @light_gray;
+    max-width: 450px;
 }
 
 /* MAIN */
@@ -201,6 +204,11 @@ h1, h2, h3, h4, h5, h6 {
 #header {
     overflow: auto;
     margin: 40px 0 0;    
+}
+#ten {
+    max-width: 960px;
+    padding: 20px;
+    border: 1px solid @light_gray;
 }
 
 #title {
@@ -330,6 +338,22 @@ hr {
     img {
         width: 276px;
     }
+}
+
+/* GALLERIA */
+#galleria {
+  width: 100%px;
+  height: 500px;
+  margin: 0 auto;
+  background: transparent;
+}
+.galleria-thumbnails-container {
+  display: none !important;
+}
+#img_gallery {
+  width: 100%;
+  text-align: center;
+  float:left;
 }
 
 /* FOOTER */

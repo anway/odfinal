@@ -16,12 +16,99 @@
                 });        
             });
         </script>
-        <script src="galleria/galleria-1.2.9.min.js"></script>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        
+        <script>
+            var modal = (function(){
+                         var
+                         method = {},
+                         $overlay,
+                         $modal,
+                         $content,
+                         $close;
+                         
+                         // Center the modal in the viewport
+                         method.center = function () {
+                         var top, left;
+                         
+                         top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+                         left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+                         
+                         $modal.css({
+                                    top:top,
+                                    left:left
+                                    });
+                         };
+                         
+                         // Open the modal
+                         method.open = function (video) {
+                         $content.empty().append(video);
+                         $modal.css({
+                                    width: 'auto',
+                                    height: 'auto'
+                                    });
+                         
+                         method.center();
+                         $modal.show(1000).fadeIn(1000);
+                         $overlay.show();
+                         };
+                         
+                         // Close the modal
+                         method.close = function (close) {
+                         if (close == null)
+                         {
+                            $modal.fadeOut(4000);
+                            $overlay.fadeOut(4000);
+                            $content.fadeOut(4000);
+                         }
+                         else
+                         {
+                            $modal.hide();
+                            $overlay.hide();
+                            $content.empty();
+                         }
+                         };
+                         
+                         // Generate the HTML and add it to the document
+                         $overlay = $('<div id="overlay"></div>');
+                         $modal = $('<div id="modal"></div>');
+                         $content = $('<div id="content"></div>');
+                         $close = $('<a id="close" href="#">close</a>');
+                         
+                         $modal.hide().fadeOut();
+                         $overlay.hide().fadeOut();
+                         $modal.append($content, $close);
+                         
+                         $(document).ready(function(){
+                                           $('body').append($overlay, $modal);
+                                           
+                                      
+                                           });
+                         
+                         $close.click(function(e){
+                                      e.preventDefault();
+                                      method.close(1000);
+                                      });
+                         
+                         return method;
+                         }());
+            
+            // Wait until the DOM has loaded before querying the document
+            $(document).ready(function(){
+                                    modal.open('<iframe width="920px" height="510px" color="white" src="http://www.youtube.com/embed/nc25a3jL_l4?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+
+                              
+                              window.setTimeout(function(){modal.close();}, 13500);
+                              });
+            </script>
+
+            <script src="galleria/galleria-1.2.9.min.js"></script>
     </head>
     <body>
         <div id="navigation">
             <img src="assets/images/header_logo.png" />
-            <h2>HPAC: The Rise of the Harvard Political Action Committee</h2>
+            <h2>The Rise of the HPAC</h2>
             <ul>
                 <li><a href="#intro">Introduction</a></li>
                 <li><a href="#part1">Part One</a></li>
@@ -39,9 +126,9 @@
             </div>          
             <div id="header">
                 <div id="ten">
-                    <h1>10</h1>
+                    <h1>IMAGE OF 10 GOES HERE</h1>
                 </div> 
-                <div id="title"><span id="intro"><!-- You guys I am so sorry this is so janky --></span>
+                <div id="title"><span id="intro"></span>
                     <h1>HPAC</h1>
                     <h3>The Rise of the Harvard Political Action Committee</h3>
                     <h4>By Crimson Staff</h4>
@@ -62,11 +149,25 @@
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.</p>
-                        <p>(<a href="">Read more</a>)</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <hr /><span id="part1"></span>
                     <div class="main_left main_third">
-                        <h2>Infographic</h2>
+                        <h2>Image</h2>
                         <img src="assets/images/placeholder_infographic.jpeg" />
                     </div>
                     <div class="main_right main_twothirds">
@@ -80,7 +181,11 @@
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>(<a href="">Read more</a>)</p>
+                         <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="clearfix"></div><hr /><span id="part2"></span>
                     <div class="main_left main_half">
@@ -89,21 +194,30 @@
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.</p>
-                        <p>(<a href="">Read more</a>)</p>
+                         <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                         <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="main_right main_half">
-                        <h2>Infographic</h2>
+                        <h2>Image</h2>
                         <img src="assets/images/placeholder_square.jpeg" />
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.</p>
-                        <p>(<a href="">Read more</a>)</p>
                     </div>
                     <div class="clearfix"></div><hr /><span id="part3"></span>
                     <div id="img_gallery">
                         <h2>Image Gallery</h2>
                         <div id="galleria">
+                            <img src="assets/images/photo_large.jpeg" />
                             <img src="assets/images/placeholder_icon.jpeg">
                             <img src="assets/images/placeholder_square.jpeg">
                             <img src="assets/images/placeholder_infographic.jpeg">
@@ -115,13 +229,38 @@
                     </div>
                     <div class="clearfix"></div><hr /><span id="part4"></span>
                     <div class="main_full">
-                        <h2>Lorem Ipsum</h2>
+                        <h2>Infographic</h2>
+                        <div id="infographic"></div>
                         <img src="assets/images/photo_large.jpeg" />
                         <p>Lorem ipsum dolor <a href="">sit amet</a>, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.</p>
-                        <p>(<a href="">Read more</a>)</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>                    
                 </div>            
             </div>
@@ -143,6 +282,6 @@
                 <li><a href="">Archives</a></li>
                 <li><a href="">Writers</a></li>
             </ul>
-        </div>        
+        </div>      
     </body>
 </html>
