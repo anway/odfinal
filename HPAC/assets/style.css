@@ -1,3 +1,17 @@
+#galleria {
+  width: 100%px;
+  height: 500px;
+  margin: 0 auto;
+  background: transparent;
+}
+.galleria-thumbnails-container {
+  display: none !important;
+}
+#img_gallery {
+  width: 100%;
+  text-align: center;
+  float:left;
+}
 .clearfix { clear:both; }
 .border_left { border-left:1px solid #ccc; }
 .border_right { border-right:1px solid #ccc; }

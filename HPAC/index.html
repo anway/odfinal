@@ -16,6 +16,7 @@
                 });        
             });
         </script>
+        <script src="galleria/galleria-1.2.9.min.js"></script>
     </head>
     <body>
         <div id="navigation">
@@ -100,6 +101,19 @@
                         <p>(<a href="">Read more</a>)</p>
                     </div>
                     <div class="clearfix"></div><hr /><span id="part3"></span>
+                    <div id="img_gallery">
+                        <h2>Image Gallery</h2>
+                        <div id="galleria">
+                            <img src="assets/images/placeholder_icon.jpeg">
+                            <img src="assets/images/placeholder_square.jpeg">
+                            <img src="assets/images/placeholder_infographic.jpeg">
+                        </div>
+                        <script>
+                        Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+                        Galleria.run('#galleria');
+                        </script>
+                    </div>
+                    <div class="clearfix"></div><hr /><span id="part4"></span>
                     <div class="main_full">
                         <h2>Lorem Ipsum</h2>
                         <img src="assets/images/photo_large.jpeg" />
